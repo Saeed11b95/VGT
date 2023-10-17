@@ -1,0 +1,17 @@
+Doclaynet
+coco_voc_conversion
+figures
+layoutlm_uncased
+mini
+small_dataset
+Visualizations
+*.png
+*.jpg
+*.jpeg
+*.tar.gz
+*.zip
+*.pth
+object_detection/__pycache__
+__pycache__
+object_detection/filter
+object_detection/*.pdf
