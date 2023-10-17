@@ -3,6 +3,7 @@ coco_voc_conversion
 figures
 layoutlm_uncased
 mini
+models
 small_dataset
 Visualizations
 *.png
