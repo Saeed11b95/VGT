@@ -286,15 +286,15 @@ MODEL:
     - layer7
     - layer11
     POS_TYPE: abs
-  WEIGHTS: /workspace/VGT/models/doclaynet_VGT_model.pth
+  WEIGHTS: /home/saeed/Walnut/AdvancedLiterateMachinery/DocumentUnderstanding/VGT/models/doclaynet_VGT_model.pth
   WORDGRID:
     EMBEDDING_DIM: 64
     HIDDEN_SIZE: 768
-    MODEL_PATH: /workspace/VGT/models/
+    MODEL_PATH: /home/saeed/Walnut/AdvancedLiterateMachinery/DocumentUnderstanding/VGT/models/
     USE_PRETRAIN_WEIGHT: true
     USE_UNK_TEXT: false
     VOCAB_SIZE: 30552
-OUTPUT_DIR: ./output
+OUTPUT_DIR: output
 SEED: 42
 SOLVER:
   AMP:

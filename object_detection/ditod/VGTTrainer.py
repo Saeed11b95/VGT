@@ -465,6 +465,7 @@ class VGTTrainer(TrainerBase):
         Args:
             resume (bool): whether to do resume or not
         """
+        print(self.cfg.MODEL.WEIGHTS)
         self.checkpointer.resume_or_load(self.cfg.MODEL.WEIGHTS, resume=resume)
         if resume and self.checkpointer.has_checkpoint():
             # The checkpoint stores the training iteration that just finished, thus we start

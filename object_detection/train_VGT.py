@@ -121,22 +121,19 @@ def main(args):
     register_coco_instances(
         "fintabnet_train",
         {},
-        "/workspace/VGT/small_dataset/annotations/instances_train.json",
-        "/workspace/VGT/small_dataset/train"
+        "/home/saeed/Walnut/AdvancedLiterateMachinery/DocumentUnderstanding/VGT/small_dataset/annotations/instances_train.json",
+        "/home/saeed/Walnut/AdvancedLiterateMachinery/DocumentUnderstanding/VGT/small_dataset/train"
     )
 
     register_coco_instances(
         "fintabnet_val",
         {},
-        "/workspace/VGT/small_dataset/annotations/instances_val.json",
-        "/workspace/VGT/small_dataset/val"
+        "/home/saeed/Walnut/AdvancedLiterateMachinery/DocumentUnderstanding/VGT/small_dataset/annotations/instances_train.json",
+        "/home/saeed/Walnut/AdvancedLiterateMachinery/DocumentUnderstanding/VGT/small_dataset/train"
     )
     
 
     cfg = setup(args)
-    cfg.defrost()
-    cfg.MODEL.WEIGHTS = "/workspace/VGT/models/doclaynet_VGT_model.pth"
-    cfg.freeze()
     if args.eval_only:
         model = MyTrainer.build_model(cfg)
         DetectionCheckpointer(model, save_dir=cfg.OUTPUT_DIR).resume_or_load(

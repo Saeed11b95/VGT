@@ -1,17 +1,17 @@
-_BASE_: "/workspace/VGT/object_detection/Configs/Base-RCNN-FPN.yaml"
+_BASE_: "../Base-RCNN-FPN.yaml"
 MODEL:
   MASK_ON: False
   META_ARCHITECTURE: "VGT"
   WORDGRID:
     VOCAB_SIZE: 30552
     EMBEDDING_DIM: 64
-    MODEL_PATH: "/workspace/VGT/models/"
+    MODEL_PATH: "/home/saeed/Walnut/AdvancedLiterateMachinery/DocumentUnderstanding/VGT/models/"
     USE_PRETRAIN_WEIGHT: True
   PIXEL_MEAN: [ 127.5, 127.5, 127.5 ]
   PIXEL_STD: [ 127.5, 127.5, 127.5 ]
   BACKBONE:
     NAME: "build_VGT_fpn_backbone"
-  WEIGHTS: "/workspace/VGT/models/doclaynet_VGT_model.pth"
+  WEIGHTS: "/home/saeed/Walnut/AdvancedLiterateMachinery/DocumentUnderstanding/VGT/models/doclaynet_VGT_model.pth"
   VIT:
     NAME: "VGT_dit_base_patch16"
     MERGE_TYPE: "Sum"

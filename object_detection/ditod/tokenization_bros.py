@@ -135,7 +135,8 @@ class BrosTokenizer(BertTokenizer):
         for token, bbox in zip(tokens, bboxs):
             current_sub_tokens = []
             bboxs_start_x = bbox[0]
-            bbox_length = bbox[2]
+            bbox_length = bbox[2]-bbox[0]
+            bbox_height = bbox[3]-bbox[1]
             tokens_split_on_whitespace = self.whitespace_tokenize(token)
             for split_token in tokens_split_on_whitespace:
                 for sub_token in super().tokenize(split_token):
@@ -144,7 +145,7 @@ class BrosTokenizer(BertTokenizer):
                 for current_token in current_sub_tokens:
                     length_current_token = len(current_token)
                     current_bbox_width = bbox_length * (length_current_token / total_length_all_sub_tokens)
-                    split_bboxs.append([bboxs_start_x, bbox[1], current_bbox_width, bbox[3]])
+                    split_bboxs.append([bboxs_start_x, bbox[1], current_bbox_width, bbox_height])
                     bboxs_start_x += current_bbox_width
                     split_tokens.append(current_token)
                     token_ids.append(super()._convert_token_to_id(current_token))

@@ -161,10 +161,11 @@ class DetrDatasetMapper:
                     sample_inputs = pickle.load(f)
                 input_ids = sample_inputs["input_ids"]
                 bbox_subword_list = sample_inputs["bbox_subword_list"]
-            elif 'fintabnet' in name:
+            elif 'small_dataset' in name:
                 root = '/'.join(name[:-2])
-                pdf_name = '/'.join(['/word_pickles'] + name[-1:][:-3])
-                with open((root + pdf_name + 'pkl'), "rb") as f:
+                pkl_dir = "/word_pickles"
+                pdf_name = name[-1]
+                with open((root + pkl_dir + '/' + pdf_name + '.pkl'), "rb") as f:
                     sample_inputs = pickle.load(f)
                 input_ids = sample_inputs["input_ids"]
                 bbox_subword_list = sample_inputs["bbox_subword_list"]
@@ -196,7 +197,7 @@ class DetrDatasetMapper:
                 )
 
         image_shape = image.shape[:2]  # h, w
-        
+        print("Image Shape", image_shape)
         # Pytorch's dataloader is efficient on torch.Tensor due to shared-memory,
         # but not efficient on large generic data structures due to the use of pickle & mp.Queue.
         # Therefore it's important to use torch.Tensor.
@@ -206,7 +207,7 @@ class DetrDatasetMapper:
         bbox = []
         for bbox_per_subword in bbox_subword_list:
             text_word = {}
-            text_word['bbox'] = bbox_per_subword.tolist()
+            text_word['bbox'] = bbox_per_subword
             text_word['bbox_mode'] = BoxMode.XYWH_ABS
             utils.transform_instance_annotations(text_word, transforms, image_shape)
             bbox.append(text_word['bbox'])
@@ -234,5 +235,5 @@ class DetrDatasetMapper:
             ]
             instances = utils.annotations_to_instances(annos, image_shape)
             dataset_dict["instances"] = utils.filter_empty_instances(instances)           
-
+            
         return dataset_dict

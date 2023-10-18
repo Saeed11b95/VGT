@@ -57,7 +57,6 @@ def main():
     )
 
     args = parser.parse_args()
-    print("####ARGS####", args)
     if args.dataset in ('D4LA', 'doclaynet'):
         image_path = args.image_root + args.image_name + ".png"
     else:
