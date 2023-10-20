@@ -161,7 +161,7 @@ class DetrDatasetMapper:
                     sample_inputs = pickle.load(f)
                 input_ids = sample_inputs["input_ids"]
                 bbox_subword_list = sample_inputs["bbox_subword_list"]
-            elif 'small_dataset' in name:
+            elif 'Pubtables-COCO' in name:
                 root = '/'.join(name[:-2])
                 pkl_dir = "/word_pickles"
                 pdf_name = name[-1]

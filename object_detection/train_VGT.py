@@ -121,15 +121,15 @@ def main(args):
     register_coco_instances(
         "fintabnet_train",
         {},
-        "/home/saeed/Walnut/AdvancedLiterateMachinery/DocumentUnderstanding/VGT/small_dataset/annotations/instances_train.json",
-        "/home/saeed/Walnut/AdvancedLiterateMachinery/DocumentUnderstanding/VGT/small_dataset/train"
+        "/workspace/Pubtables-COCO/annotations/instances_train.json",
+        "/workspace/Pubtables-COCO/train2017"
     )
 
     register_coco_instances(
         "fintabnet_val",
         {},
-        "/home/saeed/Walnut/AdvancedLiterateMachinery/DocumentUnderstanding/VGT/small_dataset/annotations/instances_train.json",
-        "/home/saeed/Walnut/AdvancedLiterateMachinery/DocumentUnderstanding/VGT/small_dataset/train"
+        "/workspace/Pubtables-COCO/annotations/instances_val.json",
+        "/workspace/Pubtables-COCO/val2017"
     )
     
 
